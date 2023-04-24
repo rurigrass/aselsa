@@ -4,8 +4,8 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["www.aselsa.es"]
-  }
-}
+    domains: ["www.aselsa.es", "cdn.sanity.io"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

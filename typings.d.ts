@@ -7,9 +7,9 @@ export type Base = {
 };
 
 export interface IPost extends Base {
-  author: Author;
+  author: IAuthor;
   body: Block[];
-  categories: Category[];
+  categories: ICategory[];
   mainImage: Image;
   slug: Slug;
   title: string;

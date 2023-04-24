@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={newsreader.className}>
-      <body>
+      <body className="max-w-7xl mx-auto">
         <Header />
         <NavBar />
         {children}

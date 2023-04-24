@@ -13,11 +13,11 @@ const query = groq`
 export default async function Home() {
   const posts = await client.fetch(query);
   console.log(posts.length);
-  
+
   return (
     <div className="">
-      preview
-      <BlogList posts={posts} />
+      <div>page</div>
+      {posts.length > 0 && <BlogList posts={posts} />}
     </div>
   );
 }
