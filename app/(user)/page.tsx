@@ -1,4 +1,23 @@
+import BlogList from "@/components/BlogList";
+import { client } from "@/lib/sanity.client";
+import { groq } from "next-sanity";
 
-export default function Home() {
-  return <main className="">not preview</main>;
+const query = groq`
+  *[_type=='post'] {
+    ...,
+    author->,
+    categories[]->
+  } | order(_createdAt desc)
+`;
+
+export default async function Home() {
+  const posts = await client.fetch(query);
+  console.log(posts.length);
+  
+  return (
+    <div className="">
+      preview
+      <BlogList posts={posts} />
+    </div>
+  );
 }
