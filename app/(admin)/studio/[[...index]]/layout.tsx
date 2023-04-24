@@ -1,5 +1,5 @@
 import { Newsreader } from "next/font/google";
-import "./globals.css";
+import "../../../globals.css";
 
 const newsreader = Newsreader({ subsets: ["latin"], weight: "500" });
 
@@ -16,8 +16,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={newsreader.className}>
       <body>
-        <h1 className="text-4xl">Aselsa</h1>
-
         {children}
       </body>
     </html>
