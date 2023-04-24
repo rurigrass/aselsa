@@ -4,6 +4,8 @@ import category from "@/schemas/category";
 import { IPost } from "@/typings";
 import { groq } from "next-sanity";
 import Image from "next/image";
+// import PortableText from "react-portable-text";
+import {PortableText} from "@portabletext/react";
 
 type Props = {
   params: {
@@ -37,8 +39,8 @@ const Post = async ({ params: { slug } }: Props) => {
               fill
             />
           </div>
-          <section className="p-5 bg-blue-100">
-            <div className="flex flex-col md:flex-row justify-between gap-y-5">
+          <section className="p-5 bg-blue-100 w-full">
+            <div className="flex flex-row justify-between gap-y-5">
               <div>
                 <h1 className="text-4xl font-extrabold">{post.title}</h1>
                 <p>
@@ -57,9 +59,9 @@ const Post = async ({ params: { slug } }: Props) => {
                   height={40}
                   width={40}
                 />
-                <div className="w-64">
+                <div className="w-6">
                   <h3 className="text-lg font-bold">{post.author.name}</h3>
-                  {/* <div>author bio</div> */}
+                  <div>{/* author bio */}</div>
                 </div>
               </div>
             </div>
@@ -79,6 +81,15 @@ const Post = async ({ params: { slug } }: Props) => {
           </section>
         </div>
       </section>
+      <div >
+        <PortableText 
+        value={post.body}
+       
+        
+        // components={Rich}
+         />
+
+      </div>
     </article>
   );
 };
