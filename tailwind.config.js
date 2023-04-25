@@ -13,6 +13,11 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    // colors: {
+    //   "aselsa-red": "#a4292b",
+    //   "aselsa-green": "#2a7a4a",
+    //   "aselsa-blue": "#284281"
+    // }
   },
   plugins: [],
 }

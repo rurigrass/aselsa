@@ -10,6 +10,8 @@ const query = groq`
   } | order(_createdAt desc)
 `;
 
+export const revalidate = 60; //update every 60 seconds
+
 export default async function Home() {
   const posts = await client.fetch(query);
   console.log(posts.length);

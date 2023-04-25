@@ -13,6 +13,8 @@ type Props = {
   };
 };
 
+export const revalidate = 60; // revalidate this page every 60 seconds
+
 //prebuilds all blog pages (makes them all static)
 export async function generateStaticParams() {
   const query = groq`*[_type=='post']
