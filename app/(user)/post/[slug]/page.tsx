@@ -4,14 +4,29 @@ import category from "@/schemas/category";
 import { IPost } from "@/typings";
 import { groq } from "next-sanity";
 import Image from "next/image";
-// import PortableText from "react-portable-text";
 import { PortableText } from "@portabletext/react";
+import { RichTextComponents } from "@/components/RichTextComponents";
 
 type Props = {
   params: {
     slug: string;
   };
 };
+
+//prebuilds all blog pages (makes them all static)
+export async function generateStaticParams() {
+  const query = groq`*[_type=='post']
+    {
+      slug
+    }`;
+
+  const slugs: IPost[] = await client.fetch(query);
+
+  const slugRoutes = slugs.map((slug) => slug.slug.current);
+  return slugRoutes.map((slug) => ({
+    slug,
+  }));
+}
 
 const Post = async ({ params: { slug } }: Props) => {
   console.log(slug);
@@ -82,11 +97,7 @@ const Post = async ({ params: { slug } }: Props) => {
         </div>
       </section>
       <div>
-        <PortableText
-          value={post.body}
-
-          // components={Rich}
-        />
+        <PortableText value={post.body} components={RichTextComponents} />
       </div>
     </article>
   );

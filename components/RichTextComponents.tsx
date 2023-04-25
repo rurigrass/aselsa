@@ -46,6 +46,15 @@ export const RichTextComponents = {
     ),
   },
   marks: {
+    em: ({ children }: any) => (
+      <em className="text-gray-600 font-semibold">{children}</em>
+    ),
+    strong: ({ children }: any) => (
+      <strong className="text-black font-extrabold">{children}</strong>
+    ),
+    underline: ({ children }: any) => (
+      <strong className="text-black underline">{children}</strong>
+    ),
     link: ({ children, value }: any) => {
       const rel = !value.href.startsWith("/")
         ? "noreferrer noopener"
