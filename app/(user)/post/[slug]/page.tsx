@@ -5,7 +5,7 @@ import { IPost } from "@/typings";
 import { groq } from "next-sanity";
 import Image from "next/image";
 // import PortableText from "react-portable-text";
-import {PortableText} from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 
 type Props = {
   params: {
@@ -81,14 +81,12 @@ const Post = async ({ params: { slug } }: Props) => {
           </section>
         </div>
       </section>
-      <div >
-        <PortableText 
-        value={post.body}
-       
-        
-        // components={Rich}
-         />
+      <div>
+        <PortableText
+          value={post.body}
 
+          // components={Rich}
+        />
       </div>
     </article>
   );
